@@ -4,7 +4,7 @@ sed 's/"//g' myiptemp.txt > myip.txt
 rm myiptemp.txt
 newip=$(cat myip.txt)
 
-if [ -z "$newip" ]; then
+if [ -z "$newip" ] || [[ "$newip" == *"error"* ]]; then
     echo "$oldip" > myip.txt
 else
     if [ "$oldip" = "$newip" ]; then
